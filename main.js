@@ -68,8 +68,12 @@ disply1.addEventListener('keydown',(e)=>{
     if (disply1.value===''&& '+%/*)0^'.includes(e.key)){
         e.preventDefault();
     }
-    if ('+%/*√^'.includes(disply1.value.slice(-1)) && '+%/*√^'.includes(e.key) ){
-        e.preventDefault();
+    if ('+%/*-√^'.includes(disply1.value.slice(-1)) && '+%/-*^'.includes(e.key) ){
+        if(e.key==='-' && disply1.value.slice(-1)!=='-'){
+            return;
+        }else if(e.key==='√' && disply1.value.slice(-1)!=='√'){
+            return;
+        }e.preventDefault();
     }
     if (e.key==='Backspace' ||e.key==='Delete' ||e.key==='ArrowLeft' ||e.key==='ArrowRight') return
     if(!"1234567890+-%./*()√^".includes(e.key)){
