@@ -56,7 +56,7 @@ function solvee(){
 
 
 disply1.addEventListener("input",()=>{
-    if(!(/[+\-%/*(.√^]$/.test(disply1.value)) && (disply1.value.length))  {
+    if(!(/[+\-%/*(✓.√^]$/.test(disply1.value)) && (disply1.value.length))  {
         
         tokenize(disply1.value);
         }else if(disply1.value===0 || disply1.value===''){
