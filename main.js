@@ -56,6 +56,7 @@ function updatekey(o) {
   }
 
   display.value = exp;
+  display.scrollLeft= display.scrollWidth;
 }
 function backspace(){
     exp = exp.slice(0,-1);
