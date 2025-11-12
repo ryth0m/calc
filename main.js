@@ -68,7 +68,7 @@ disply1.addEventListener('keydown',(e)=>{
     if (disply1.value===''&& '+%/*)0^'.includes(e.key)){
         e.preventDefault();
     }
-    if ('+%/*-√^'.includes(disply1.value.slice(-1)) && '+%/-*^'.includes(e.key) ){
+    if ('+%/*-✓√^'.includes(disply1.value.slice(-1)) && '+%/-*^'.includes(e.key) ){
         if(e.key==='-' && disply1.value.slice(-1)!=='-'){
             return;
         }else if(e.key==='√' && disply1.value.slice(-1)!=='√'){
@@ -76,7 +76,7 @@ disply1.addEventListener('keydown',(e)=>{
         }e.preventDefault();
     }
     if (e.key==='Backspace' ||e.key==='Delete' ||e.key==='ArrowLeft' ||e.key==='ArrowRight') return
-    if(!"1234567890+-%./*()√^".includes(e.key)){
+    if(!"1234567890+-%./*(✓)√^".includes(e.key)){
         e.preventDefault();
     }
 })
@@ -84,10 +84,11 @@ function clear2(){
     disply1.value = disply2.value = '';
 }
 
-const r = /\d+(\.\d+)?|[+\-%/*()√^]/g;
+const r = /\d+(\.\d+)?|[+\-%/*()√✓^]/g;
 
 function precedence(operator) {
   switch (operator) {
+    case '✓':
     case '√': return 4;
     case '^': return 3;
     case '*':
@@ -100,7 +101,7 @@ function precedence(operator) {
 }
 
 function rightassoc(operator) {
-  return operator === '^' || operator === '√';
+  return operator === '^' || operator === '√' || operator === '✓';
 }
 
 function tokenize(exp) {
@@ -108,7 +109,7 @@ function tokenize(exp) {
   for (let i = 0; i < ary.length; i++) {
     if (
       ary[i] === '-' &&
-      (i === 0 || '+-*/%√(^'.includes(ary[i - 1])) &&
+      (i === 0 || '+-*/%√✓(^'.includes(ary[i - 1])) &&
       !isNaN(ary[i + 1])
     ) {
       ary.splice(i, 2, '-' + ary[i + 1]);
@@ -161,7 +162,7 @@ function calc(postfixary) {
     if (!isNaN(i)) {
       stack.push(parseFloat(i));
     } else {
-      if (i === '√') {
+      if (i === '√' || i == '✓') {
         stack.push(Math.sqrt(stack.pop()));
       } else {
         let b = stack.pop();
