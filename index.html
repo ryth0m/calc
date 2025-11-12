@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calc</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="buddha.png" type="image/png">
+    
+</head>
+<body>
+    <div class="N-Calculator">
+        <input id="display" placeholder="0"readonly >
+        <div class="keys">
+            <button class="opeator" onclick="clearr()">AC</button>
+            <button class="opeator" onclick="backspace()">del</button>
+            <button class="opeator" onclick="updatekey('%')">%</button>
+            <button class="opeator" onclick="updatekey('/')">/</button>
+            <button class="opperand" onclick="updatekey('7')">7</button>
+            <button class="opperand" onclick="updatekey('8')">8</button>
+            <button class="opperand" onclick="updatekey('9')">9</button>
+            <button class="opeator" onclick="updatekey('*')">x</button>
+            <button class="opperand" onclick="updatekey('4')">4</button>
+            <button class="opperand" onclick="updatekey('5')">5</button>
+            <button class="opperand" onclick="updatekey('6')">6</button>
+            <button class="opeator" onclick="updatekey('-')">-</button>
+            <button class="opperand" onclick="updatekey('1')">1</button>
+            <button class="opperand" onclick="updatekey('2')">2</button>
+            <button class="opperand" onclick="updatekey('3')">3</button>
+            <button class="opeator" onclick="updatekey('+')">+</button>
+            <button class="opperand" onclick="updatekey('✓')">√</button>
+            <button class="opperand" onclick="updatekey('0')">0</button>
+            <button class="opperand" onclick="updatekey('.')">.</button>
+            <button onclick="solvee()" class="sum">=</button>
+        </div>
+    </div>
+    
+    <div class="D-Calculator" >
+        <input id="disply1" placeholder="0" class="screenin" title=""/>
+        <span class="tooltiptext">only 0-9 and <br>  +-/*^%()✓.  are allowed </span>
+        <input id="disply2" placeholder="0" class="screenout" readonly>
+
+    </div>
+    <div class="switch">
+        <button onclick="switchcalc()" id="switch">Switch to digital calculator</button>
+        <button onclick="clear2()" id="Clear">Clear</button>
+    </div>
+<script src="main.js"></script>
+</body>
+</html>
